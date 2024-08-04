@@ -2,13 +2,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Encriptador de texto - Challenge</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+    <!-- menu principal -->
+    <main class="encriptador">
 
+        <!-- logo -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-tm" width="56" height="56"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+            <path d="M6 9h4" />
+            <path d="M8 9v6" />
+            <path d="M13 15v-6l2 3l2 -3v6" />
+        </svg>
+
+        <!-- seccion para encriptar y desencriptar -->
+        <section class="encriptador__contenido">
+            <textarea class="encriptador__contenido__texto" name="" id=""
+                placeholder="Ingrese el texto aqui"></textarea>
+            <p class="encriptador__contenido__info"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-info-circle-filled" width="20" height="20" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -19.995 .324l-.005 -.324l.004 -.28c.148 -5.393 4.566 -9.72 9.996 -9.72zm0 9h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007v3l.007 .117a1 1 0 0 0 .876 .876l.117 .007h1l.117 -.007a1 1 0 0 0 .876 -.876l.007 -.117l-.007 -.117a1 1 0 0 0 -.764 -.857l-.112 -.02l-.117 -.006v-3l-.007 -.117a1 1 0 0 0 -.876 -.876l-.117 -.007zm.01 -3l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z"
+                        stroke-width="0" fill="currentColor" />
+                </svg>Apenas letras minúsculas y sin acentos.</p>
+            <div class="encriptador__contenido__boton">
+                <button class="encriptador__contenido__boton--verde">Encriptar</button>
+                <button class="encriptador__contenido__boton--verde-claro">Desencriptar</button>
+            </div>
+
+        </section>
+
+        <!-- seccion para mostrar resultados del encriptador -->
+        <section class="encriptador__resultado">
+            <img class="encriptador__resultado__imagen" src="img/Muñeco.png" alt="muneco de busqueda">
+            <div class="encriptador__resultado__texto">
+                <h1>Ningún mensaje fue encontrado</h1>
+                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+        </section>
+
+        <!-- <section class="encriptador__resultado">
+            <p class="encriptador__resultado__texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
+                montes, sit et diam risus scelerisque vitae est. Tortor maecenas nunc ut laoreet. Eget diam mauris quam
+                quisque ut eget fringilla sit elit. Libero, sodales duis fames id diam feugiat aliquet non egestas.</p>
+            <button class="encriptador__resultado__boton">Copiar</button>
+        </section> -->
+    </main>
     <script src="app.js"></script>
 </body>
 
