@@ -13,15 +13,14 @@
     <main class="encriptador">
 
         <!-- logo -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-tm" width="56" height="56"
-            viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-            <path d="M6 9h4" />
-            <path d="M8 9v6" />
-            <path d="M13 15v-6l2 3l2 -3v6" />
-        </svg>
+        <div class="encriptador__logo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-google" width="56"
+                height="56" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0a3871" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M20.945 11a9 9 0 1 1 -3.284 -5.997l-2.655 2.392a5.5 5.5 0 1 0 2.119 6.605h-4.125v-3h7.945z" />
+            </svg>
+        </div>
 
         <!-- seccion para encriptar y desencriptar -->
         <section class="encriptador__contenido">
@@ -44,19 +43,21 @@
 
         <!-- seccion para mostrar resultados del encriptador -->
         <section class="encriptador__resultado">
-            <img class="encriptador__resultado__imagen" src="img/Muñeco.png" alt="muneco de busqueda">
-            <div class="encriptador__resultado__texto">
+            <img id="resultadoImagen" class="encriptador__resultado__imagen" src="img/Muñeco.png"
+                alt="muneco de busqueda">
+            <div id="resultadoTexto" class="encriptador__resultado__texto">
                 <h1>Ningún mensaje fue encontrado</h1>
-                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                <p>Ingresa el texto que deseas encriptar o desencriptar.</p>
             </div>
-        </section>
 
-        <!-- <section class="encriptador__resultado">
-            <p class="encriptador__resultado__texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
+            <p id="resultadoParrafo" class="encriptador__resultado__parrafo">Lorem ipsum dolor sit amet, consectetur
+                adipiscing
+                elit. Orci
                 montes, sit et diam risus scelerisque vitae est. Tortor maecenas nunc ut laoreet. Eget diam mauris quam
                 quisque ut eget fringilla sit elit. Libero, sodales duis fames id diam feugiat aliquet non egestas.</p>
-            <button class="encriptador__resultado__boton">Copiar</button>
-        </section> -->
+            <button id="resultadoBotonCopiar" class="encriptador__resultado__boton">Copiar</button>
+        </section>
+
     </main>
     <script src="app.js"></script>
 </body>
