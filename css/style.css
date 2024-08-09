@@ -39,7 +39,7 @@ body {
     justify-content: space-between;
     gap: 32px;
     width: 60%;
-    height: 850px;
+    height: 800px;
     padding: 100px 32px 32px;
 }
 
@@ -112,10 +112,12 @@ body {
     align-items: center;
     gap: 20px;
     width: 30%;
-    height: 850px;
+    height: 800px;
     background-color: var(--color-secundario);
     border-radius: 32px;
     padding: 32px;
+    word-wrap: break-word; /* Ajusta las palabras largas dentro del contenedor */
+    white-space: pre-wrap; /* Preserva los saltos de línea y espacios */
 }
 
 .encriptador__resultado__imagen {
@@ -132,15 +134,20 @@ body {
 
 .encriptador__resultado__texto h1 {
     font-size: 24px;
+    text-align: center;
 }
 
 .encriptador__resultado__texto p {
     font-size: 16px;
+    text-align: center;
 }
 
 .encriptador__resultado__parrafo {
     font-size: 24px;
-    text-align: justify;
+    text-align: left;
+    white-space: pre-wrap; /* Preserva los saltos de línea y espacios */
+    word-break: break-word; /* Fuerza el ajuste de palabras largas */
+    
 }
 
 .encriptador__resultado__boton {
@@ -157,6 +164,19 @@ body {
 
 .encriptador__resultado__boton:active {
     background-color: var(--color-botones-activos);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-botones-primarios);
+    padding: 20px 20px 0 20px;
+    width: 100%;
+}
+
+.footer__parrafo {
+    font-size: 14px;
 }
 
 @media (max-width: 1024px) {
@@ -229,6 +249,11 @@ body {
 
     .encriptador__resultado__parrafo {
         font-size: 18px;
+    }
+
+    .footer__parrafo {
+        text-align: center;
+        font-size: 10px;
     }
 
 }

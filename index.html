@@ -24,7 +24,8 @@
 
         <!-- seccion para encriptar y desencriptar -->
         <section class="encriptador__contenido">
-            <textarea class="encriptador__contenido__texto" name="" id=""
+
+            <textarea class="encriptador__contenido__texto" name="" id="texto"
                 placeholder="Ingrese el texto aqui"></textarea>
             <p class="encriptador__contenido__info"><svg xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-info-circle-filled" width="20" height="20" viewBox="0 0 24 24"
@@ -35,30 +36,36 @@
                         stroke-width="0" fill="currentColor" />
                 </svg>Apenas letras minúsculas y sin acentos.</p>
             <div class="encriptador__contenido__boton">
-                <button class="encriptador__contenido__boton--verde">Encriptar</button>
-                <button class="encriptador__contenido__boton--verde-claro">Desencriptar</button>
+                <button onclick="encriptar();" class="encriptador__contenido__boton--verde">Encriptar</button>
+                <button onclick="desencriptar()"
+                    class="encriptador__contenido__boton--verde-claro">Desencriptar</button>
             </div>
 
         </section>
 
         <!-- seccion para mostrar resultados del encriptador -->
-        <section class="encriptador__resultado">
+        <section id="encriptador__resultado" class="encriptador__resultado">
+
             <img id="resultadoImagen" class="encriptador__resultado__imagen" src="img/Muñeco.png"
                 alt="muneco de busqueda">
             <div id="resultadoTexto" class="encriptador__resultado__texto">
-                <h1>Ningún mensaje fue encontrado</h1>
-                <p>Ingresa el texto que deseas encriptar o desencriptar.</p>
+                <h1 id="tituloMensaje">Ningún mensaje fue encontrado</h1>
+                <p id="parrafoMensaje">Ingresa el texto que deseas encriptar o desencriptar.</p>
             </div>
 
-            <p id="resultadoParrafo" class="encriptador__resultado__parrafo">Lorem ipsum dolor sit amet, consectetur
-                adipiscing
-                elit. Orci
-                montes, sit et diam risus scelerisque vitae est. Tortor maecenas nunc ut laoreet. Eget diam mauris quam
-                quisque ut eget fringilla sit elit. Libero, sodales duis fames id diam feugiat aliquet non egestas.</p>
-            <button id="resultadoBotonCopiar" class="encriptador__resultado__boton">Copiar</button>
+            <p id="resultadoParrafo" class="encriptador__resultado__parrafo"></p>
+            <button onclick="copiarTexto()" id="resultadoBotonCopiar"
+                class="encriptador__resultado__boton">Copiar</button>
+
         </section>
 
     </main>
+
+    <!-- pie de pagina -->
+    <footer class="footer">
+        <p class="footer__parrafo">Copyright © 2024 Yeison Plazas - Todos los derechos reservados</p>
+    </footer>
+
     <script src="app.js"></script>
 </body>
 
