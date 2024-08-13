@@ -89,7 +89,6 @@ function mostrarResultado(texto) {
         
         // expresiones regulares
         let caracteresEspeciales = /[!@#$%^&*(),.?":{}|<>[\]\\/¡¿~`+=;:'-]/;
-        console.log("aqui");
         let letrasMayusculas = /[A-Z]/;
 
         // funciones para evaluar si existe caracteres especiales y mayusculas en el texto
@@ -107,14 +106,13 @@ function mostrarResultado(texto) {
 
         } else {
 
-            // si no existe ningun error, se muestra en pantalla el texto listo para copiar
+            // si no existe ningun error, se muestra en pantalla el texto listo para copiar con todos sus estilos
             document.getElementById("resultadoParrafo").style.color = "#0a3871";
             document.getElementById("resultadoParrafo").style.display = "block";
             document.getElementById("resultadoBotonCopiar").style.display = "block";
             document.getElementById("resultadoImagen").style.display = "none";
             document.getElementById("resultadoTexto").style.display = "none";
             document.getElementById("encriptador__resultado").style.justifyContent = "space-between";
-
             document.getElementById("resultadoParrafo").innerText = texto;
         }
 
