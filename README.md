@@ -9,23 +9,27 @@ repositorio del proyecto encriptador de texto, challenge propuesto por Alura Lat
 
 ### Encriptar texto
 para encriptar el texto se debe pegar el texto en minusculas y sin caracteres especiales y luego click en el boton encriptar:
-![paso para encriptar](img/manual-encriptar.png)
+
+<img src="img/manual-encriptar.png" alt="paso para encriptar" width="600" height="400">
 
 el resultado sera el siguiente:
-![resultado encriptacion](img/manual-texto-encriptado.png)
 
+<img src="img/manual-texto-encriptado.png" alt="resultado encriptacion" width="800" height="400">
 
 ### copiar resultado de la encriptación
 para copiar resultado de la encriptación se debe dar click en copiar:
-![copiar resultado de encriptacion](img/manual-copiar.png)
+
+<img src="img/manual-copiar.png" alt="copiar resultado de encriptacion" width="800" height="400">
 
 
 ### Desencriptar texto
 para desencriptar, se debe pegar el texto copiado anteriormente y luego click en el boton desencriptar:
-![paso para desencriptar](img/manual-desencriptar.png)
+
+<img src="img/manual-desencriptar.png" alt="paso para desencriptar" width="600" height="400">
 
 el resultado sera el siguiente:
-![resultado encriptacion](img/manual-texto-desencriptado.png)
+
+<img src="img/manual-texto-desencriptado.png" alt="resultado desencriptacion" width="800" height="400">
 
 
 
