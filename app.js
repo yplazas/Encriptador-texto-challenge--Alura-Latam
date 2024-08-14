@@ -1,124 +1,136 @@
-// funcion para no mostrar el resultado todavia
+const resultadoImagen = document.getElementById("resultadoImagen");
+const resultadoTexto = document.getElementById("resultadoTexto");
+const resultadoParrafo = document.getElementById("resultadoParrafo");
+const resultadoBotonCopiar = document.getElementById("resultadoBotonCopiar");
+const encriptadorResultado = document.getElementById("encriptador__resultado");
+const tituloMensaje = document.getElementById("tituloMensaje");
+const parrafoMensaje = document.getElementById("parrafoMensaje");
+
+// funcion para no mostrar el container del resultado
+
 function condicionesIniciales() {
-    document.getElementById("resultadoParrafo").style.display = "none";
-    document.getElementById("resultadoBotonCopiar").style.display = "none";
+    resultadoParrafo.style.display = "none";
+    resultadoBotonCopiar.style.display = "none";
 }
+
+// funcion para encriptar el texto
 
 function encriptar() {
     let texto = document.getElementById('texto').value;
 
-    let encriptado = '';
-    
-    // se reemplaza cada vocal por su correspondiente encriptada
-    for (let i = 0; i < texto.length; i++) {
-        let letra = texto[i];
+    //se valida si la funcion validarTexto retorna true, para luego mandar mensaje de error
+    if (validarTexto(texto)) {
 
-        if (letra === "a") {
-            letra = "ai";
-        } else if (letra === "e") {
-            letra = "enter";
-        } else if (letra === "i") {
-            letra = "imes";
-        } else if (letra === "o") {
-            letra = "ober";
-        } else if (letra === "u") {
-            letra = "ufat";
+        return;
+
+    } else {
+
+        let encriptado = '';
+        // se reemplaza cada vocal por su correspondiente encriptada
+        for (let i = 0; i < texto.length; i++) {
+            let letra = texto[i];
+
+            if (letra === "a") {
+                letra = "ai";
+            } else if (letra === "e") {
+                letra = "enter";
+            } else if (letra === "i") {
+                letra = "imes";
+            } else if (letra === "o") {
+                letra = "ober";
+            } else if (letra === "u") {
+                letra = "ufat";
+            }
+            encriptado += letra;
         }
-        encriptado += letra;
+        mostrarResultado(encriptado); // se muestra el resultado en la pantalla del usuario
     }
-
-    // se muestra el resultado en la pantalla del usuario
-    mostrarResultado(encriptado);
 }
+
+// funcion para desencriptar el texto
 
 function desencriptar() {
     let texto = document.getElementById('texto').value;
 
-    // objeto que contiene las vocales encriptadas y sus desencriptados
-    let reemplazos = {
-        "ai": "a",
-        "enter": "e",
-        "imes": "i",
-        "ober": "o",
-        "ufat": "u"
+    //se valida si la funcion validarTexto retorna true, para luego mandar mensaje de error
+    if (validarTexto(texto)) {
+
+        return;
+
+    } else {
+
+        let desencriptado = buscarVocalEncriptadaReemplazar(texto);
+        mostrarResultado(desencriptado); // se muestra el resultado en la pantalla del usuario
     }
-
-    let desencriptado = buscarCadenaReemplazar(texto, reemplazos);
-
-    // se muestra el resultado en la pantalla del usuario
-    mostrarResultado(desencriptado);
 }
 
-// funcion para buscar vocal encriptada y luego desencriptar
-function buscarCadenaReemplazar(texto, reemplazos) {
-    for (let [buscar, reemplazar] of Object.entries(reemplazos)) {
-        texto = texto.split(buscar).join(reemplazar);
+// Función para reemplazar vocales encriptadas
+
+function buscarVocalEncriptadaReemplazar(texto) {
+
+    let vocalesEncriptadas = ["ai", "enter", "imes", "ober", "ufat"];
+    let vocales = ["a", "e", "i", "o", "u"];
+
+    // Iterar sobre cada par de vocales encriptadas y reemplazos
+    for (let i = 0; i < vocalesEncriptadas.length; i++) {
+        // Reemplazar todas las ocurrencias de la vocal encriptada con la vocal correspondiente
+        texto = texto.split(vocalesEncriptadas[i]).join(vocales[i]);
     }
     return texto;
 }
 
-function establecerDisenoValidaciones() {
+// Funcion para validar texto
 
-    document.getElementById("resultadoImagen").style.display = "none";
-    document.getElementById("resultadoTexto").style.display = "flex";
-    document.getElementById("resultadoParrafo").style.display = "none";
-    document.getElementById("resultadoBotonCopiar").style.display = "none";
-    document.getElementById("encriptador__resultado").style.justifyContent = "center";
-    document.getElementById("tituloMensaje").style.display = "none";
-    document.getElementById("parrafoMensaje").style.fontSize = "18px";
-    document.getElementById("parrafoMensaje").style.color = "#0a3871";
+function validarTexto(texto) {
 
-}
+    // Expresiones regulares
+    const caracteresEspeciales = /[!@#$%^&*(),.?":{}|<>[\]\\/¡¿~`+=;´:'-]/;
+    const letrasMayusculas = /[A-Z]/;
+    const textoAcentos = /[\u00C0-\u017F]/;
 
-function mostrarResultado(texto) {
+    // Funciones para evaluar si existe caracteres especiales, acentos y mayúsculas en el texto
+    const contieneCaracteresEspeciales = caracteresEspeciales.test(texto);
+    const contieneLetrasMayusculas = letrasMayusculas.test(texto);
+    const contieneAcentos = textoAcentos.test(texto);
 
-    // se valida si esta vacio el campo texto
-    if (texto == "") {
+    // Condicionales para establecer las validaciones pertinentes y mostrar mensajes
+    if (texto === "") {
 
-        document.getElementById("resultadoImagen").style.display = "flex";
-        document.getElementById("resultadoTexto").style.display = "flex";
-        document.getElementById("resultadoParrafo").style.display = "none";
-        document.getElementById("resultadoBotonCopiar").style.display = "none";
-        document.getElementById("encriptador__resultado").style.justifyContent = "center";
-        document.getElementById("tituloMensaje").style.display = "block";
+        resultadoImagen.style.display = "flex";
+        resultadoTexto.style.display = "flex";
+        resultadoParrafo.style.display = "none";
+        resultadoBotonCopiar.style.display = "none";
+        encriptadorResultado.style.justifyContent = "center";
+        tituloMensaje.style.display = "block";
+        tituloMensaje.innerText = "Ningún mensaje fue encontrado";
+        parrafoMensaje.innerText = "Ingresa el texto que deseas encriptar o desencriptar.";
+        parrafoMensaje.style.color = "black";
+        return true;
 
-        document.getElementById("tituloMensaje").innerText = "Ningún mensaje fue encontrado";
-        document.getElementById("parrafoMensaje").innerText = "Ingresa el texto que deseas encriptar o desencriptar.";
+    } else if (contieneCaracteresEspeciales) {
+
+        establecerDisenoValidaciones();
+        parrafoMensaje.innerText = "El texto contiene caracteres especiales";
+        return true;
+
+    } else if (contieneLetrasMayusculas) {
+
+        establecerDisenoValidaciones();
+        parrafoMensaje.innerText = "El texto tiene letras mayúsculas";
+        return true;
+
+    } else if (contieneAcentos) {
+
+        establecerDisenoValidaciones();
+        parrafoMensaje.innerText = "El texto tiene acentos";
+        return true;
 
     } else {
-        
-        // expresiones regulares
-        let caracteresEspeciales = /[!@#$%^&*(),.?":{}|<>[\]\\/¡¿~`+=;:'-]/;
-        let letrasMayusculas = /[A-Z]/;
-
-        // funciones para evaluar si existe caracteres especiales y mayusculas en el texto
-        let contieneCaracteresEspeciales = caracteresEspeciales.test(texto);
-        let contieneLetrasMayusculas = letrasMayusculas.test(texto);
-
-        // condicionales para establecer las validaciones pertinentes y mostrar mensajes
-        if (contieneCaracteresEspeciales) {
-            establecerDisenoValidaciones();
-            document.getElementById("parrafoMensaje").innerText = "el texto contiene caracteres especiales o acentos";
-
-        } else if (contieneLetrasMayusculas) {
-            establecerDisenoValidaciones();
-            document.getElementById("parrafoMensaje").innerText = "El texto tiene letras mayusculas";
-
-        } else {
-
-            // si no existe ningun error, se muestra en pantalla el texto listo para copiar con todos sus estilos
-            document.getElementById("resultadoParrafo").style.color = "#0a3871";
-            document.getElementById("resultadoParrafo").style.display = "block";
-            document.getElementById("resultadoBotonCopiar").style.display = "block";
-            document.getElementById("resultadoImagen").style.display = "none";
-            document.getElementById("resultadoTexto").style.display = "none";
-            document.getElementById("encriptador__resultado").style.justifyContent = "space-between";
-            document.getElementById("resultadoParrafo").innerText = texto;
-        }
-
+        return false;
     }
 }
 
+// Funcion para copiar el resultado de la encriptacion y desencriptacion
 
 function copiarTexto() {
     // Obtener el texto del resultado de la encriptación y desencriptación
@@ -131,6 +143,34 @@ function copiarTexto() {
         alert(`Error al copiar el texto: ${err}`);
 
     });
+}
+
+// funcion para establecer diseño en las validaciones
+
+function establecerDisenoValidaciones() {
+
+    resultadoImagen.style.display = "none";
+    resultadoTexto.style.display = "flex";
+    resultadoParrafo.style.display = "none";
+    resultadoBotonCopiar.style.display = "none";
+    encriptadorResultado.style.justifyContent = "center";
+    tituloMensaje.style.display = "none";
+    parrafoMensaje.style.fontSize = "18px";
+    parrafoMensaje.style.color = "#0a3871";
+
+}
+
+function mostrarResultado(texto) {
+
+    // Si no existe ningún error, se muestra en pantalla el texto listo para copiar con todos sus estilos
+    resultadoParrafo.style.color = "#0a3871";
+    resultadoParrafo.style.display = "block";
+    resultadoBotonCopiar.style.display = "block";
+    resultadoImagen.style.display = "none";
+    resultadoTexto.style.display = "none";
+    encriptadorResultado.style.justifyContent = "space-between";
+    resultadoParrafo.innerText = texto;
+
 }
 
 condicionesIniciales();
