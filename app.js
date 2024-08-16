@@ -84,7 +84,7 @@ function buscarVocalEncriptadaReemplazar(texto) {
 function validarTexto(texto) {
 
     // Expresiones regulares
-    const caracteresEspeciales = /[!@#$%^&*(),.?":{}|<>[\]\\/¡¿~`+=;´:'-]/;
+    const caracteresEspeciales = /[!@#$%^&_¨*(),.?":{}|<>[\]\\/¡¿~`+=;´:'-]/;
     const letrasMayusculas = /[A-Z]/;
     const textoAcentos = /[\u00C0-\u017F]/;
 
